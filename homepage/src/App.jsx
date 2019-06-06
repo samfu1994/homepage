@@ -1,16 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import {Nav} from "./components/Nav";
+import {Footer} from "./components/footer";
+import {Home} from "./components/home";
+import {Algorithm} from "./components/algorithm";
+import {Design} from "./components/design";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        Under construction.
-      </header>
-    </div>
-  );
+function Content(props) {
+    switch (props.pageName) {
+        case 'home':
+            return <Home/>;
+        case 'algorithm':
+            return <Algorithm/>;
+        case 'design':
+            return <Design/>;
+    }
 }
 
-export default App;
+export class App extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {pageName:"home"};
+        this.handler = this.handler.bind(this)
+    }
+
+    handler(newPage) {
+        this.setState({
+            pageName: newPage
+        });
+    }
+
+    render () {
+        return (
+          <div className="App">
+              <Nav handler={this.handler}/>
+              <div className="content">
+                <Content pageName={this.state.pageName}/>
+              </div>
+              <Footer/>
+          </div>
+      );
+  }
+}
