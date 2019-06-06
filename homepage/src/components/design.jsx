@@ -7,7 +7,10 @@ export class Design extends React.Component {
 
     render() {
         return (
-            <div>This page is for design problem</div>
+            <div className="row">
+                <div className="leftBar" />
+x                <div>This page is for design problem</div>
+            </div>
         )
     }
 }

@@ -1,9 +1,9 @@
 import * as React from "react";
-import Sidebar from "react-sidebar";
+import {Sidebar} from "./sidebar";
 
 export class Algorithm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             sidebarDocked: true,
             sidebarOpen: false
@@ -17,8 +17,11 @@ export class Algorithm extends React.Component {
 
     render() {
         return (
-            <div className="row">
-
+            <div id='algorithm'>
+                <Sidebar pageWrapId={"page-wrap"}/>
+                <div id="page-wrap">
+                    page1
+                </div>
             </div>
         )
     }
